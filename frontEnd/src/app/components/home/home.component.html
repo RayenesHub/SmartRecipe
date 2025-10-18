@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="container">
+  <h2>🍳Entrez vos ingrédients</h2>
+  <textarea [(ngModel)]="ingredients" placeholder="Ex : œufs, tomates, fromage..." class="input"></textarea>
+
+  <button (click)="generate()" class="btn">Générer la recette</button>
+
+  <p *ngIf="loading" class="loading">⏳ Génération en cours...</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+</div>

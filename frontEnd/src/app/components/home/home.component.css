@@ -1,0 +1,44 @@
+.container {
+  text-align: center;
+  margin: 60px auto;
+  max-width: 600px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subtitle {
+  color: #5cb85c;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  min-height: 120px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.btn {
+  background-color: #ff9933;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ff6600;
+}
+
+.loading {
+  color: #ff6600;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}

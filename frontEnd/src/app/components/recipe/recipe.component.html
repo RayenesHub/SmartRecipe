@@ -1,1 +1,14 @@
-<p>recipe works!</p>
+<div class="container" *ngIf="recipe; else noRecipe">
+  <h2>{{ recipe.title }}</h2>
+  <p><strong>Temps :</strong> {{ recipe.time }}</p>
+  <p><strong>Difficulté :</strong> {{ recipe.difficulty }}</p>
+
+  <pre class="steps">{{ recipe.steps }}</pre>
+
+  <button (click)="goBack()" class="btn">← Nouvelle recette</button>
+</div>
+
+<ng-template #noRecipe>
+  <p>Aucune recette disponible. Retournez à la page d'accueil.</p>
+  <button (click)="goBack()" class="btn">Accueil</button>
+</ng-template>
