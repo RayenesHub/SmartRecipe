@@ -99,32 +99,6 @@ ng serve
 
 ---
 
-## 🌿 **Workflow Git**
-
-### 🔧 Créer une branche
-
-```bash
-git checkout -b feature/<nom-fonctionnalite>
-```
-
-### 💾 Sauvegarder le travail
-
-```bash
-git add .
-git commit -m "feat: ajout de la génération de recette"
-git push origin feature/<nom-fonctionnalite>
-```
-
-### 🔁 Fusionner après validation
-
-```bash
-git checkout main
-git merge feature/<nom-fonctionnalite>
-git push origin main
-```
-
----
-
 ## 🧾 **Conventions de commits**
 
 | Type           | Exemple                                  |
