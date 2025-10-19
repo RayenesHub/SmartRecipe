@@ -1,14 +1,29 @@
-<div class="container" *ngIf="recipe; else noRecipe">
+<!-- recipe.component.html -->
+<div class="container" *ngIf="recipe">
   <h2>{{ recipe.title }}</h2>
-  <p><strong>Temps :</strong> {{ recipe.time }}</p>
-  <p><strong>Difficulté :</strong> {{ recipe.difficulty }}</p>
 
-  <pre class="steps">{{ recipe.steps }}</pre>
+  <div class="meta">
+    <span>⏱ {{ recipe.time }}</span>
+    <span>•</span>
+    <span>🔥 {{ recipe.difficulty }}</span>
+  </div>
 
-  <button (click)="goBack()" class="btn">← Nouvelle recette</button>
+<div class="image" *ngIf="recipe?.image_b64 as img">
+  <h3>Image générée par IA</h3>
+  <img [src]="img" alt="Image IA du plat" width="30%" height="30%" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2);" />
 </div>
 
-<ng-template #noRecipe>
-  <p>Aucune recette disponible. Retournez à la page d'accueil.</p>
-  <button (click)="goBack()" class="btn">Accueil</button>
-</ng-template>
+<!-- Pour déboguer -->
+<p *ngIf="!recipe?.image_b64" style="color:red">
+  ⚠️ Aucune image reçue du backend.
+</p>
+  
+
+  <h3>Étapes</h3>
+  <!-- Si les étapes sont en texte multi-ligne, on les affiche en <pre> pour conserver la mise en forme -->
+  <pre>{{ recipe.steps }}</pre>
+
+  <div class="actions">
+    <a routerLink="/">← Nouvelle recette</a>
+  </div>
+</div>

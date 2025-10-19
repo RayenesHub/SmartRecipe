@@ -1,44 +1,25 @@
+/* home.component.css - style simple et lisible */
 .container {
-  text-align: center;
-  margin: 60px auto;
-  max-width: 600px;
-  font-family: 'Poppins', sans-serif;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 16px;
 }
-
-.subtitle {
-  color: #5cb85c;
-  margin-bottom: 20px;
-}
-
-.input {
+textarea {
   width: 100%;
-  min-height: 120px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 16px;
+  resize: vertical;
+  padding: 12px;
+  font-size: 15px;
 }
-
-.btn {
-  background-color: #ff9933;
-  color: white;
+button {
+  margin-top: 12px;
+  padding: 10px 14px;
   border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  margin-top: 15px;
   cursor: pointer;
+  background: #43a047;   /* vert doux */
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
 }
-
-.btn:hover {
-  background-color: #ff6600;
-}
-
-.loading {
-  color: #ff6600;
-  margin-top: 10px;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
+button:hover {
+  opacity: 0.9;
 }

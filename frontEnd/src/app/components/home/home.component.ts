@@ -1,6 +1,12 @@
+// home.component.ts
+// ------------------------------------------------------------------
+// Composant d'accueil : saisie des ingrédients et envoi au backend.
+// A la réponse, on redirige vers la page "recipe" avec les données.
+// ------------------------------------------------------------------
+
 import { Component } from '@angular/core';
-import {ServiceService} from "../../services/service.service";
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
+import { ApiService, RecipeResponse } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,30 +14,31 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  ingredients = '';
-  loading = false;
-  error = '';
+  // Modèle lié au textarea ([(ngModel)])
+  ingredients: string = '';
 
-  constructor(private recipeService: ServiceService, private router: Router) {}
+  // Injection service API + Router
+  constructor(private api: ApiService, private router: Router) {}
 
-  generate() {
-    this.error = '';
-    if (!this.ingredients.trim()) {
-      this.error = 'Veuillez saisir au moins un ingrédient.';
+  // Soumission du formulaire
+  onSubmit() {
+    // Trim pour éviter d'envoyer des espaces vides
+    const value = this.ingredients.trim();
+
+    if (!value) {
+      alert("Veuillez saisir au moins un ingrédient.");
       return;
     }
 
-    this.loading = true;
-    this.recipeService.generateRecipe(this.ingredients).subscribe({
-      next: (res) => {
-        this.loading = false;
-        // passer la recette à la page suivante
+    // Appel backend → reçoit RecipeResponse (texte + image)
+    this.api.generateRecipe(value).subscribe({
+      next: (res: RecipeResponse) => {
+        // Navigue vers /recipe en passant la réponse via l'état de navigation
         this.router.navigate(['/recipe'], { state: { recipe: res } });
       },
       error: (err) => {
-        this.loading = false;
-        this.error = 'Erreur lors de la génération de la recette.';
         console.error(err);
+        alert("Erreur lors de la génération. Vérifiez le backend.");
       }
     });
   }

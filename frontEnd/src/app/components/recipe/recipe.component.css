@@ -1,35 +1,32 @@
+/* recipe.component.css */
 .container {
-  max-width: 700px;
-  margin: 40px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  font-family: 'Poppins', sans-serif;
+  max-width: 820px;
+  margin: 30px auto;
+  padding: 16px;
 }
-
-h2 {
-  color: #333;
+.meta {
+  display: flex;
+  gap: 10px;
+  color: #666;
+  margin-bottom: 12px;
 }
-
-.steps {
-  background-color: #ff6600;
-  padding: 15px;
+.image img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 12px 0 20px;
+  display: block;
+}
+pre {
+  background: #f7f7f7;
+  padding: 14px;
   border-radius: 8px;
-  white-space: pre-wrap;
-  text-align: left;
+  white-space: pre-wrap; /* retour à la ligne automatique */
 }
-
-.btn {
-  margin-top: 20px;
-  background-color: #ff9933;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
+.actions {
+  margin-top: 18px;
 }
-
-.btn:hover {
-  background-color: #ff6600;
+.actions a {
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: 600;
 }

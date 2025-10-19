@@ -1,9 +1,17 @@
+<!-- home.component.html -->
 <div class="container">
-  <h2>🍳Entrez vos ingrédients</h2>
-  <textarea [(ngModel)]="ingredients" placeholder="Ex : œufs, tomates, fromage..." class="input"></textarea>
+  <h1>SmartRecipe</h1>
+  <p>Entrez vos ingrédients (séparés par des virgules) :</p>
 
-  <button (click)="generate()" class="btn">Générer la recette</button>
+  <form (ngSubmit)="onSubmit()">
+    <textarea
+      [(ngModel)]="ingredients"
+      name="ingredients"
+      rows="6"
+      placeholder="ex : poulet, tomates, oignons, curry, riz"
+      required
+    ></textarea>
 
-  <p *ngIf="loading" class="loading">⏳ Génération en cours...</p>
-  <p *ngIf="error" class="error">{{ error }}</p>
+    <button type="submit">Générer la recette 🍳</button>
+  </form>
 </div>
